@@ -19,7 +19,7 @@ public class ProviderServiceImpl implements ProviderService {
 
     @Override
     public Provider findProviderByEmailAddressAndPassword(String email, String password) {
-        return providerRepository.findByEmailAddressAndPassword(email, password);
+        return providerRepository.findByEmailAndPassword(email, password);
     }
 
 

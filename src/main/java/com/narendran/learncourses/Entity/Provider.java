@@ -7,6 +7,9 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Data
@@ -30,8 +33,15 @@ public class Provider {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(unique = true)
-    private String emailAddress;
+    @Min(16)
+    @Max(120)
+    private Integer age;
 
+    @Column(unique = true)
+    private String email;
+
+    @Pattern(regexp = "^[a-zA-Z0-9@]")
     private String password;
+
+    private String confirmPassword;
 }

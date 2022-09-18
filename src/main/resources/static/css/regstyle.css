@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.banner{
+  background-image: linear-gradient(rgba(0,0,0,0.35),
+  rgba(0,0,0,0.65)),url("../SignUp.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar {
+  width: 90%;
+  padding: 35px 0;
+  margin: auto auto 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  width: 180px;
+  cursor: pointer;
+}
+
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: violet;
+  text-transform: uppercase;
+}
+.navbar ul li::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background-color: #009688;
+  position: absolute;
+  bottom: -10px;
+  left: -0px;
+  transition: 1s;
+}
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+
+div .main{
+  width: 450px;
+  margin: 5px auto 0 auto;
+}
+
+h2{
+  text-align: center;
+  padding: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #009688;
+}
+
+div.register{
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 2px 2px 15px
+  rgba(192, 14, 14, 0.3);
+  color: #009688;
+}
+
+form#register{
+  margin: 50px;
+}
+
+label{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 22px;
+  font-style: oblique;
+}
+
+ input#name
+ {
+  width: 350px;
+  border: 1px solid #009688;
+  border-radius: 3px;
+  margin-top: 10px;
+  outline: 0;
+  padding: 7px;
+  box-shadow: inset 1px
+  1px 5px rgba(0, 0, 0, 0.3);
+}
+
+input#name:focus{
+border:4px solid #009688;
+box-shadow: #009688 inset;
+transition: 2s;
+}
+
+input#submit{
+  width: 200px;
+  padding: 7px;
+  font-size: 16px;
+  margin-left: 70px;
+  margin-right: auto;
+  overflow: hidden;
+  font-family: sans-serif;
+  border-radius: 3px;
+  background-color: rgba(250, 100, 0, 0.8);
+  cursor: pointer;
+  border: 1px solid
+  rgba(255, 255, 255, 0.3);
+  box-shadow: 1px 1px
+  5px rgba(0,0,0,0.3);
+}
+
+input#submit:hover{
+  color: #fff;
+  border: #009688 2px solid;
+  font-style: oblique;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+p,a{
+  text-align: center;
+  color: blueviolet;
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+a{
+  color: #ddd;
+}
+a:hover{
+  color: #009688;
+  font-style: italic;
+}
+
+a::after{
+  color: green;
+}
+

@@ -4,5 +4,5 @@ import com.narendran.learncourses.Entity.Provider;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProviderRepository extends JpaRepository<Provider, Long> {
-    Provider findByEmailAddressAndPassword(String emailAddress, String password);
+    Provider findByEmailAndPassword(String emailAddress, String password);
 }
