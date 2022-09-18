@@ -7,5 +7,6 @@ public interface ProviderService {
 
     Provider addProvider(Provider provider);
 
-    Provider findProviderByEmailAddressAndPassword(String email, String password);
+    Provider findProviderByEmailAddressAndPasswordAndConfirmPassword(
+            String email, String password, String confirmPassword);
 }

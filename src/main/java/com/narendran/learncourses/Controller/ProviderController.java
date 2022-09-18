@@ -36,16 +36,24 @@ public class ProviderController {
     }
 
     @PostMapping("/providerReg")
-    public ModelAndView registerProvider(Provider provider) {
+    public ModelAndView registerProvider(Provider provider ,
+                                         String password ,
+                                         String confirmPassword) {
         LOGGER.info("PROVIDER CONTROLLER : InsideRegister()" + provider);
         try {
-            modelAndView.addObject(providerService.addProvider(provider));
-            emailUtil.sendEmail(provider.getEmail(), "noReply : " +
-                            "WELCOME TO DXC UNIVERSITY " + provider.getFirstName(),
-                    "Hello " + provider.getFirstName() +
-                            " YOUR CREDENTIALS : " + "\nYour email address : " + provider.getEmail() +
-                            "\nYour Password : " + provider.getPassword() + "\nPlease Dont Share With anyone!");
-            modelAndView.setViewName("provider/providerLogin");
+            if(password.equals(confirmPassword)) {
+                modelAndView.addObject(providerService.addProvider(provider));
+                emailUtil.sendEmail(provider.getEmail(), "noReply : " +
+                                "WELCOME TO DXC UNIVERSITY " + provider.getFirstName(),
+                        "Hello " + provider.getFirstName() +
+                                " YOUR CREDENTIALS : " + "\nYour email address : " + provider.getEmail() +
+                                "\nYour Password : " + provider.getPassword() + "\nPlease Dont Share With anyone!");
+                modelAndView.setViewName("provider/providerLogin");
+            }
+            else {
+                modelAndView.addObject("message", "Passwords Do Not match");
+                modelAndView.setViewName("provider/providerReg");
+            }
         } catch (Exception e) {
             modelAndView.addObject("message", "Provider already exist, please try Login");
             modelAndView.setViewName("provider/providerReg");
@@ -66,16 +74,17 @@ public class ProviderController {
 
 
     @PostMapping("/loginProvider")
-    public ModelAndView loginProvider(String emailAddress, String password,String confirmPassword) {
+    public ModelAndView loginProvider(String email, String password,String confirmPassword) {
         LOGGER.info("PROVIDER CONTROLLER : Inside loginProvider()");
         Provider provider = null;
         try {
-            provider = providerService.findProviderByEmailAddressAndPassword(emailAddress, password);
+            provider = providerService.findProviderByEmailAddressAndPasswordAndConfirmPassword
+                    (email, password,confirmPassword);
         } catch (ResourceNotFoundException re) {
             re.printStackTrace();
         }
-        if (provider != null && provider.getPassword().equals(password) &&
-                Objects.equals(provider.getPassword(), confirmPassword)) {
+        if (provider != null && provider.getPassword().equals(password)
+                && provider.getPassword().equals(confirmPassword)) {
             modelAndView.addObject("message", "");
             modelAndView.setViewName("provider/provider_dashboard");
                 emailUtil.sendEmail(provider.getEmail(),"LOGGED IN SUCCESSFUL","\n" +

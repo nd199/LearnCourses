@@ -95,6 +95,21 @@ label{
   1px 5px rgba(0, 0, 0, 0.3);
 }
 
+input#password,input#confirmPassword,input#firstName,
+input#lastName,input#age
+{
+  width: 350px;
+  border: 1px solid #009688;
+  border-radius: 3px;
+  margin-top: 10px;
+  outline: 0;
+  padding: 7px;
+  border-color: #009688;
+  box-shadow: inset 1px
+  1px 5px rgba(0, 0, 0, 0.3);
+}
+
+
 input#name:focus{
 border:4px solid #009688;
 box-shadow: #009688 inset;
