@@ -8,7 +8,8 @@ import java.util.List;
 public interface LearnerService {
     Learner addLearner(Learner learner);
 
-    Learner findLearnerByEmailAndPassword(String email, String password);
+    Learner findLearnerByEmailAndPasswordAndConfirmPassword(String email,
+                                                            String password, String confirmPassword);
 
     List<Learner> getAllLearners();
 }

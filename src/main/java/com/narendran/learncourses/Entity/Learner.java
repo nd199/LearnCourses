@@ -30,8 +30,13 @@ public class Learner {
     @Column(nullable = false)
     private String lastName;
 
+    private Integer age;
+
     @Column(unique = true)
-    private String emailAddress;
+    private String email;
 
     private String password;
+
+    private String confirmPassword;
+
 }

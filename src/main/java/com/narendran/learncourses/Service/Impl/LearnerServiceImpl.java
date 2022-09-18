@@ -21,8 +21,8 @@ public class LearnerServiceImpl implements LearnerService {
     }
 
     @Override
-    public Learner findLearnerByEmailAndPassword(String email, String password) {
-        return learnerRepository.findLearnerByEmailAddressAndPassword(email, password);
+    public Learner findLearnerByEmailAndPasswordAndConfirmPassword(String email, String password, String confirmPassword) {
+        return learnerRepository.findByEmailAndPasswordAndConfirmPassword(email, password, confirmPassword);
     }
 
     @Override
