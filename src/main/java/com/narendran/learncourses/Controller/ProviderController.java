@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Objects;
-
 
 @Controller
 public class ProviderController {
@@ -44,7 +42,7 @@ public class ProviderController {
             if(password.equals(confirmPassword)) {
                 modelAndView.addObject(providerService.addProvider(provider));
                 emailUtil.sendEmail(provider.getEmail(), "noReply : " +
-                                "WELCOME TO DXC UNIVERSITY " + provider.getFirstName(),
+                                "WELCOME TO LEARN COURSES" + provider.getFirstName(),
                         "Hello " + provider.getFirstName() +
                                 " YOUR CREDENTIALS : " + "\nYour email address : " + provider.getEmail() +
                                 "\nYour Password : " + provider.getPassword() + "\nPlease Dont Share With anyone!");
@@ -58,8 +56,8 @@ public class ProviderController {
             modelAndView.addObject("message", "Provider already exist, please try Login");
             modelAndView.setViewName("provider/providerReg");
             emailUtil.sendEmail(provider.getEmail(), "noReply : " +
-                            "WELCOME TO DXC UNIVERSITY " + provider.getFirstName(),
-                    "Seems like u r already registered with DXC Try Login " );
+                            "WELCOME TO LEARN COURSES" + provider.getFirstName(),
+                    "Seems like u r already registered with LEARN COURSES Try Login " );
         }
         return modelAndView;
     }
